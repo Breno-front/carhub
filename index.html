@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Hub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Evita a rolagem horizontal */
+        }
+        p{
+            text-align: center;
+            display: grid;
+        }
+        .header {
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 20px 20px 40px; /* Ajusta o padding para mover o botão mais para a esquerda */
+            width: 86%;
+            top: 0;
+            left: 0;
+           z-index: 1; /* Garante que o cabeçalho fique sobre a imagem de fundo */
+            background: transparent; /* Define a navbar como transparente */
+        }
+        .logo img {
+            max-height: 25px; /* Diminui o tamanho da logo */
+        }
+        .sign-in {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: black;
+            border-radius: 5px;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: url('img/tri.png') no-repeat right center; /* Ajusta a posição do fundo */
+            background-size: 90%; /* Aumenta a imagem de fundo */
+            height: 100vh; /* Preenche a altura da viewport */
+            background-position: 450% center; /* Move a imagem de fundo mais para a direita */
+        }
+        .content {
+            max-width: 50%;
+            position: relative;
+            z-index: 2; /* Garante que o conteúdo fique acima do cabeçalho */
+        }
+        .content h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        .content p {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+        .content button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .image-container {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2; /* Garante que a imagem fique acima do cabeçalho */
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        .catalog {
+            padding: 40px;
+            display: flex;
+            flex-wrap: wrap; /* Permite que os itens sejam distribuídos em várias linhas */
+            justify-content: center; /* Centraliza os itens dentro do contêiner */
+        }
+        .catalog-item {
+            display: inline-block;
+            width: calc(22% - 20px); /* Diminui o tamanho dos itens do catálogo */
+            margin: 10px;
+            background-color: #F4F6FC; /* Cor de fundo azul claro */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .catalog-item img {
+            width: 100%;
+            height: auto;
+        }
+        .catalog-info {
+            padding: 20px;
+            text-align: center;
+        }
+        .catalog-info h3 {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+        .catalog-icons {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .catalog-icons img {
+            width: 24px;
+            height: 24px;
+        }
+        .catalog-icons span {
+            display: block;
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+        .price {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .price small {
+            font-size: 0.8em;
+            font-weight: normal;
+        }
+        .option-car {
+            padding: 20px;
+            text-align: center;
+        }
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .search-bar input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+        }
+        .search-bar button {
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 0 5px 5px 0;
+        }
+        .search-bar button img {
+            width: 40px;
+            height: 30px;
+        }
+        h3{
+            text-align: left;
+        }
+        h2{
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="img/logo.svg" alt="Logo">
+        </div>
+        <a href="#" class="sign-in">Sign In</a>
+    </div>
+    <div class="container">
+        <div class="content">
+            <center>
+            <h1>Encontre, reserve ou <br>alugue um carro<br>rapidamente e<br>facilmente!</h1>
+            </center>
+            <p>Streamline your car rental experience with <br>our effortless booking process.</p><br>
+            
+            <center><button class="explorebtt">Explore Cars</button></center>  
+        </div>
+        <div class="image-container">
+            <img src="img/sw4.png" alt="Car Image">
+        </div>
+    </div>
+    
+    <div class="option-car">
+        <h2>Car Catalogue</h2>
+        <h3>Explore our cars you might like</h3>
+        <div class="search-bar">
+            <input type="text" placeholder="Search by model..." name="search">
+            <img src="img/magnifying-glass.svg" alt="Search">
+        </div>
+    </div>
+    <div class="catalog">
+        <!-- Exemplo de item de catálogo -->
+        <div class="catalog-item">
+            <h3 class="name-car">SW4 4x4 5A AT</h3>
+            <img src="img/sw4.png" alt="Car">
+            <div class="price">R$ 780 <small>/dia</small></div>
+            <div class="catalog-info">
+                
+                <div class="catalog-icons">
+                    <div>
+                        <img src="img/iconecambio.svg" alt="AWD">
+                        <span>AWD</span>
+                    </div>
+                    <div>
+                        <img src="img/iconegasolina.svg" alt="19 MPG">
+                        <span>19 MPG</span>
+                    </div>
+                    <div>
+                        <img src="img/iconevolante.svg" alt="Automatic">
+                        <span>Automatic</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <!-- Replicar este bloco mais 15 vezes -->
+        <!-- Início da réplica -->
+        <div class="catalog-item">
+            <h3 class="name-car">SW4 4x4 5A AT</h3>
+            <img src="img/sw4.png" alt="Car">
+            <div class="price">R$ 780 <small>/dia</small></div>
+            <div class="catalog-info">
+                
+                <div class="catalog-icons">
+                    <div>
+                        <img src="img/iconecambio.svg" alt="AWD">
+                        <span>AWD</span>
+                    </div>
+                    <div>
+                        <img src="img/iconegasolina.svg" alt="19 MPG">
+                        <span>19 MPG</span>
+                    </div>
+                    <div>
+                        <img src="img/iconevolante.svg" alt="Automatic">
+                        <span>Automatic</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="catalog-item">
+            <h3 class="name-car">SW4 4x4 5A AT</h3>
+            <img src="img/sw4.png" alt="Car">
+            <div class="price">R$ 780 <small>/dia</small></div>
+            <div class="catalog-info">
+                
+                <div class="catalog-icons">
+                    <div>
+                        <img src="img/iconecambio.svg" alt="AWD">
+                        <span>AWD</span>
+                    </div>
+                    <div>
+                        <img src="img/iconegasolina.svg" alt="19 MPG">
+                        <span>19 MPG</span>
+                    </div>
+                    <div>
+                        <img src="img/iconevolante.svg" alt="Automatic">
+                        <span>Automatic</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="catalog-item">
+            <h3 class="name-car">SW4 4x4 5A AT</h3>
+            <img src="img/sw4.png" alt="Car">
+            <div class="price">R$ 780 <small>/dia</small></div>
+            <div class="catalog-info">
+                
+                <div class="catalog-icons">
+                    <div>
+                        <img src="img/iconecambio.svg" alt="AWD">
+                        <span>AWD</span>
+                    </div>
+                    <div>
+                        <img src="img/iconegasolina.svg" alt="19 MPG">
+                        <span>19 MPG</span>
+                    </div>
+                    <div>
+                        <img src="img/iconevolante.svg" alt="Automatic">
+                        <span>Automatic</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="catalog-item">
+            <h3 class="name-car">SW4 4x4 5A AT</h3>
+            <img src="img/sw4.png" alt="Car">
+            <div class="price">R$ 780 <small>/dia</small></div>
+            <div class="catalog-info">
+                
+                <div class="catalog-icons">
+                    <div>
+                        <img src="img/iconecambio.svg" alt="AWD">
+                        <span>AWD</span>
+                    </div>
+                    <div>
+                        <img src="img/iconegasolina.svg" alt="19 MPG">
+                        <span>19 MPG</span>
+                    </div>
+                    <div>
+                        <img src="img/iconevolante.svg" alt="Automatic">
+                        <span>Automatic</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="catalog-item">
+            <h3 class="name-car">SW4 4x4 5A AT</h3>
+            <img src="img/sw4.png" alt="Car">
+            <div class="price">R$ 780 <small>/dia</small></div>
+            <div class="catalog-info">
+                
+                <div class="catalog-icons">
+                    <div>
+                        <img src="img/iconecambio.svg" alt="AWD">
+                        <span>AWD</span>
+                    </div>
+                    <div>
+                        <img src="img/iconegasolina.svg" alt="19 MPG">
+                        <span>19 MPG</span>
+                    </div>
+                    <div>
+                        <img src="img/iconevolante.svg" alt="Automatic">
+                        <span>Automatic</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="catalog-item">
+            <h3 class="name-car">SW4 4x4 5A AT</h3>
+            <img src="img/sw4.png" alt="Car">
+            <div class="price">R$ 780 <small>/dia</small></div>
+            <div class="catalog-info">
+                
+                <div class="catalog-icons">
+                    <div>
+                        <img src="img/iconecambio.svg" alt="AWD">
+                        <span>AWD</span>
+                    </div>
+                    <div>
+                        <img src="img/iconegasolina.svg" alt="19 MPG">
+                        <span>19 MPG</span>
+                    </div>
+                    <div>
+                        <img src="img/iconevolante.svg" alt="Automatic">
+                        <span>Automatic</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="catalog-item">
+            <h3 class="name-car">SW4 4x4 5A AT</h3>
+            <img src="img/sw4.png" alt="Car">
+            <div class="price">R$ 780 <small>/dia</small></div>
+            <div class="catalog-info">
+                
+                <div class="catalog-icons">
+                    <div>
+                        <img src="img/iconecambio.svg" alt="AWD">
+                        <span>AWD</span>
+                    </div>
+                    <div>
+                        <img src="img/iconegasolina.svg" alt="19 MPG">
+                        <span>19 MPG</span>
+                    </div>
+                    <div>
+                        <img src="img/iconevolante.svg" alt="Automatic">
+                        <span>Automatic</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="catalog-item">
+            <h3 class="name-car">SW4 4x4 5A AT</h3>
+            <img src="img/sw4.png" alt="Car">
+            <div class="price">R$ 780 <small>/dia</small></div>
+            <div class="catalog-info">
+                
+                <div class="catalog-icons">
+                    <div>
+                        <img src="img/iconecambio.svg" alt="AWD">
+                        <span>AWD</span>
+                    </div>
+                    <div>
+                        <img src="img/iconegasolina.svg" alt="19 MPG">
+                        <span>19 MPG</span>
+                    </div>
+                    <div>
+                        <img src="img/iconevolante.svg" alt="Automatic">
+                        <span>Automatic</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="catalog-item">
+            <h3 class="name-car">SW4 4x4 5A AT</h3>
+            <img src="img/sw4.png" alt="Car">
+            <div class="price">R$ 780 <small>/dia</small></div>
+            <div class="catalog-info">
+                
+                <div class="catalog-icons">
+                    <div>
+                        <img src="img/iconecambio.svg" alt="AWD">
+                        <span>AWD</span>
+                    </div>
+                    <div>
+                        <img src="img/iconegasolina.svg" alt="19 MPG">
+                        <span>19 MPG</span>
+                    </div>
+                    <div>
+                        <img src="img/iconevolante.svg" alt="Automatic">
+                        <span>Automatic</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="catalog-item">
+            <h3 class="name-car">SW4 4x4 5A AT</h3>
+            <img src="img/sw4.png" alt="Car">
+            <div class="price">R$ 780 <small>/dia</small></div>
+            <div class="catalog-info">
+                
+                <div class="catalog-icons">
+                    <div>
+                        <img src="img/iconecambio.svg" alt="AWD">
+                        <span>AWD</span>
+                    </div>
+                    <div>
+                        <img src="img/iconegasolina.svg" alt="19 MPG">
+                        <span>19 MPG</span>
+                    </div>
+                    <div>
+                        <img src="img/iconevolante.svg" alt="Automatic">
+                        <span>Automatic</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="catalog-item">
+            <h3 class="name-car">SW4 4x4 5A AT</h3>
+            <img src="img/sw4.png" alt="Car">
+            <div class="price">R$ 780 <small>/dia</small></div>
+            <div class="catalog-info">
+                
+                <div class="catalog-icons">
+                    <div>
+                        <img src="img/iconecambio.svg" alt="AWD">
+                        <span>AWD</span>
+                    </div>
+                    <div>
+                        <img src="img/iconegasolina.svg" alt="19 MPG">
+                        <span>19 MPG</span>
+                    </div>
+                    <div>
+                        <img src="img/iconevolante.svg" alt="Automatic">
+                        <span>Automatic</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="catalog-item">
+            <h3 class="name-car">SW4 4x4 5A AT</h3>
+            <img src="img/sw4.png" alt="Car">
+            <div class="price">R$ 780 <small>/dia</small></div>
+            <div class="catalog-info">
+                
+                <div class="catalog-icons">
+                    <div>
+                        <img src="img/iconecambio.svg" alt="AWD">
+                        <span>AWD</span>
+                    </div>
+                    <div>
+                        <img src="img/iconegasolina.svg" alt="19 MPG">
+                        <span>19 MPG</span>
+                    </div>
+                    <div>
+                        <img src="img/iconevolante.svg" alt="Automatic">
+                        <span>Automatic</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="catalog-item">
+            <h3 class="name-car">SW4 4x4 5A AT</h3>
+            <img src="img/sw4.png" alt="Car">
+            <div class="price">R$ 780 <small>/dia</small></div>
+            <div class="catalog-info">
+                
+                <div class="catalog-icons">
+                    <div>
+                        <img src="img/iconecambio.svg" alt="AWD">
+                        <span>AWD</span>
+                    </div>
+                    <div>
+                        <img src="img/iconegasolina.svg" alt="19 MPG">
+                        <span>19 MPG</span>
+                    </div>
+                    <div>
+                        <img src="img/iconevolante.svg" alt="Automatic">
+                        <span>Automatic</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="catalog-item">
+            <h3 class="name-car">SW4 4x4 5A AT</h3>
+            <img src="img/sw4.png" alt="Car">
+            <div class="price">R$ 780 <small>/dia</small></div>
+            <div class="catalog-info">
+                
+                <div class="catalog-icons">
+                    <div>
+                        <img src="img/iconecambio.svg" alt="AWD">
+                        <span>AWD</span>
+                    </div>
+                    <div>
+                        <img src="img/iconegasolina.svg" alt="19 MPG">
+                        <span>19 MPG</span>
+                    </div>
+                    <div>
+                        <img src="img/iconevolante.svg" alt="Automatic">
+                        <span>Automatic</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="catalog-item">
+            <h3 class="name-car">SW4 4x4 5A AT</h3>
+            <img src="img/sw4.png" alt="Car">
+            <div class="price">R$ 780 <small>/dia</small></div>
+            <div class="catalog-info">
+                
+                <div class="catalog-icons">
+                    <div>
+                        <img src="img/iconecambio.svg" alt="AWD">
+                        <span>AWD</span>
+                    </div>
+                    <div>
+                        <img src="img/iconegasolina.svg" alt="19 MPG">
+                        <span>19 MPG</span>
+                    </div>
+                    <div>
+                        <img src="img/iconevolante.svg" alt="Automatic">
+                        <span>Automatic</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <!-- Fim da réplica -->
+    </div>
+</body>
+</html>
